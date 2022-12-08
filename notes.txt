@@ -1,0 +1,1 @@
+todo: profile schema needs bigint(?) on user_id(reference to the user) and conversation(s)_id(array of convo ids)
