@@ -1,1 +1,23 @@
 todo: profile schema needs bigint(?) on user_id(reference to the user) and conversation(s)_id(array of convo ids)
+
+todo: profile references
+  belongs_to :user, -> { where(id: user_id) }
+
+
+//^ a profile belongs to a user-- where profile's 'user_id' atribute is = to user:id
+
+todo: conversation references
+  has_many :participants, dependent: :destroy
+  has_many :participants, through: :profiles
+
+todo: message references
+
+https://api.rubyonrails.org/v7.0.4/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_and_belongs_to_many
+example: a developer "has and belongs to many" projects
+>> a profile 'has and belongs to many' conversations 
+ 
+ ERD LINK
+ https://whimsical.com/chatty-erd-entity-relationship-diagram-Avrj6Re3mja58TKu3Twsac@2Ux7TurymNE4GSgNJ2p8
+
+ WIREFRAME LINK
+ https://whimsical.com/chatbox-wireframe-TAhXrJd7GTKgtfTR2AcCMK@2Ux7TurymMcpBfUEwb1w
